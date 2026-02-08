@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1 class="header-1">Unit Converter.</h1>
+    <div class="box">
+        <div class="bar">
+            <span onclick="cambioLength()">Length</span> 
+            <span onclick="cambioWeigth()">Weight</span> 
+            <span onclick="cambioTemperature()">Temperature</span>
+        </div>
+        <form action="" method="post">
+            <p class="enter-the-amount">The Length to convert</p>
+            <input type="number" name="amountTo">
+            <p class="select-the-unit-to-convert-from">Unit to Convert From</p>
+            <select name="tFrom">
+                <option>milimeter</option>
+                <option>centimeter</option>
+                <option>meter</option>
+                <option>kilometer</option>
+                <option>inch</option>
+                <option>foot</option>
+            </select>
+            <p class="unit-convert-to">Unit to Convert to</p>
+            <select name="toConvertTo">
+                <option>milimeter</option>
+                <option>centimeter</option>
+                <option>meter</option>
+                <option>kilometer</option>
+                <option>inch</option>
+                <option>foot</option>
+            </select>
+            <button type="submit" class="bt">Convert</button>
+        </form>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
