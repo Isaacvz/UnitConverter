@@ -1,5 +1,5 @@
 body {
-  background-color: #121212; /* Fondo oscuro sugerido */
+  background-color: #121212; 
 }
 
 .header-1 {
@@ -82,4 +82,15 @@ select {
     background-color: #BB86FC;
     transition: 0.3s;
     border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
