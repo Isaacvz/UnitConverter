@@ -8,24 +8,27 @@ let form = document.querySelector('form');
 // Functions 
 
 form.addEventListener('submit', async (event) => {
-
     event.preventDefault();
 
     const formData = new FormData(form);
     const completeData = Object.fromEntries(formData.entries());
-    console.log(completeData);
-
-    /*
-
-    fetch('***', {
-        method = 'POST',
-        body: JSON.stringify(datosCompletos),
-        heders: {
+    //console.log(completeData);
+    
+    fetch('http://localhost:3600/math', {
+        method: 'POST',
+        body: JSON.stringify(completeData),
+        headers: {
             'Content-Type': 'application/json'
-        }
-    });
-
-    */
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const amount2 = data.amt
+            const amtFrom = data.aFrom
+            const amtTo = data.aTo
+            console.log("Datos recibidos del servidor correctamente Cantidad: ", amount2, " de: ", amtFrom, " para: ", amtTo);
+        })
+        .catch(error => console.error("Error:", error));
 });
 
 function cambioLength() {
@@ -77,3 +80,4 @@ function cambioTemperature() {
     }
 }
 
+ 
