@@ -23,10 +23,19 @@ form.addEventListener('submit', async (event) => {
         })
         .then(response => response.json())
         .then(data => {
-            const amount2 = data.amt
-            const amtFrom = data.aFrom
-            const amtTo = data.aTo
-            console.log("Datos recibidos del servidor correctamente Cantidad: ", amount2, " de: ", amtFrom, " para: ", amtTo);
+            //const amount2 = data.amt
+            //const amtFrom = data.aFrom
+            //const amtTo = data.aTo
+            //console.log("Datos recibidos del servidor correctamente Cantidad: ", amount2, " de: ", amtFrom, " para: ", amtTo);
+            if(data.status === "succes") {
+                const msje = data.msj;
+                const fin = data.final;
+                console.log(msje);
+                console.log(fin);
+            } else {
+                const msje = data.msj;
+                console.log(msje);
+            }
         })
         .catch(error => console.error("Error:", error));
 });
@@ -68,7 +77,7 @@ function cambioTemperature() {
     amount.textContent = 'The Temperature to convert';
     select1.replaceChildren();
     select2.replaceChildren();
-    let list = ["Celsius", "Fahrenheit", "Kelvin"];
+    let list = ["celsius", "fahrenheit", "kelvin"];
     let i = 0;
     while(i < 3) {
         let optChild = document.createElement('option');

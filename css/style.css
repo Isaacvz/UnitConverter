@@ -8,12 +8,29 @@ body {
     text-align: center;
 }
 
+.hide {
+    display: none;
+}
+
+.box2 {
+    width: 50%;
+    height: 60%; 
+    background-color: gray;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 20px;
+    border: 2px solid red;
+}
+
 .box {
     height: 95%;
     width: 95%;
-    border: 2px solid white;
-    border-radius: 5px;
+    border: 2px solid red;
+    border-radius: 20px;
 }
+
 span {
     color: white;
     font-size: 1.3rem;
