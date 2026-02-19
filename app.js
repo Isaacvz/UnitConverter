@@ -20,9 +20,12 @@ form.addEventListener('submit', async (event) => {
 
     const formData = new FormData(form);
     const completeData = Object.fromEntries(formData.entries());
-    //console.log(completeData);
+
+    const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:4000' 
+  : 'https://unit-converter-abraham.vercel.app';
     
-    fetch('http://localhost:4000/math', {
+    fetch(`${API_URL}/math`, {
         method: 'POST',
         body: JSON.stringify(completeData),
         headers: {
