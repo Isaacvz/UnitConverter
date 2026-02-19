@@ -17,21 +17,21 @@ def receive():
         if aFrom == aTo:
             return jsonify ({
                 "status": "error",
-                "msj": "Corversion failed. You must select differents units.",
-                "final": f"You tried to convert {aFrom} to {aTo}."
+                "msj": "Corversion failed. You must select differents units",
+                "final": f"You tried to convert {aFrom} to {aTo}"
             }), 400
 
         medida = ureg.Quantity(amount, aFrom)
         medidaFinal = medida.to(aTo)
         return jsonify ({
                 "status": "success",
-                "msj": f"Congratulations the conversion was succesfull.",
-                "final": f"{amount} in {aFrom} is equal to {medidaFinal}."
+                "msj": f"Congratulations the conversion was succesfull",
+                "final": f"{amount} in {aFrom} is equal to {medidaFinal}"
             })
     except Exception as e: 
         return jsonify({
                 "status": "error",
-                "msj": "Conversion Failed. Error: {e}."
+                "msj": "Conversion Failed. Error: {e}"
             })
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
