@@ -5,7 +5,7 @@ from pint import UnitRegistry
 ureg = UnitRegistry()
 app = Flask(__name__)
 CORS(app)
-@app.route('/api/convert', methods=['GET', 'POST'])
+@app.route('/api/convert', methods=['POST'])
 def receive():
     
     try:
