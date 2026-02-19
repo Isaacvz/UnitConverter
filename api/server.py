@@ -7,12 +7,6 @@ app = Flask(__name__)
 CORS(app)
 @app.route('/api/convert', methods=['GET', 'POST'])
 def receive():
-
-    if request.method == 'GET':
-        return jsonify({
-            "status": "online",
-            "message": "Unit Converter API is running. Send a POST request to convert."
-        })
     
     try:
         req_json = request.get_json(force=True)
