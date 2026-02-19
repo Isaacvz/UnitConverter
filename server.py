@@ -5,7 +5,7 @@ from pint import UnitRegistry
 ureg = UnitRegistry()
 app = Flask(__name__)
 CORS(app)
-@app.route('/math', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def receive():
 
     req_json = request.get_json(force=True)
