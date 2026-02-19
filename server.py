@@ -8,19 +8,25 @@ CORS(app)
 @app.route('/', methods=['GET', 'POST'])
 def receive():
 
-    req_json = request.get_json(force=True)
-    print("DICCIONARIO RECIBIDO:", req_json)
-    amount = float(req_json['amountTo'])
-    aFrom = req_json['tFrom']
-    aTo = req_json['toConvertTo']
+    if request.method == 'GET':
+        return jsonify({
+            "status": "online",
+            "message": "Unit Converter API is running. Send a POST request to convert."
+        })
+    
+    try:
+        req_json = request.get_json(force=True)
+        amount = float(req_json.get('amountTo', 0))
+        aFrom = req_json.get('tFrom')
+        aTo = req_json.get('toConvertTo')
 
-    if aFrom == aTo:
-        return jsonify ({
+        if aFrom == aTo:
+            return jsonify ({
                 "status": "error",
                 "msj": "Corversion failed. You must select differents units.",
                 "final": f"You tried to convert {aFrom} to {aTo}."
             }), 400
-    try:
+
         medida = ureg.Quantity(amount, aFrom)
         medidaFinal = medida.to(aTo)
         return jsonify ({
@@ -31,7 +37,7 @@ def receive():
     except Exception as e: 
         return jsonify({
                 "status": "error",
-                "msj": "Conversion Failed. You must select differents u",
+                "msj": "Conversion Failed. Error: {e}."
             })
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
