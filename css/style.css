@@ -13,15 +13,19 @@ body {
 }
 
 .box2 {
-    width: 50%;
-    height: 60%; 
-    background-color: gray;
+    width: 30%;
+    height: 30%; 
+    background-color: #EFB810;
     position: fixed;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     border-radius: 20px;
     border: 2px solid red;
+}
+
+.r1, .r2 {
+    color: black;
 }
 
 .box {

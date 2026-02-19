@@ -4,8 +4,16 @@ let amount = document.querySelector('.enter-the-amount');
 let select1 = document.querySelector('.fSelect');
 let select2 = document.querySelector('.sSelect');
 let form = document.querySelector('form');
+let btn = document.querySelector('.button');
+let box2 = document.querySelector('.box2');
+let r1 = document.querySelector('.r1');
+let r2 = document.querySelector('.r2');
 
 // Functions 
+
+function toggle() {
+    box2.classList.toggle('hide');
+}
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -14,7 +22,7 @@ form.addEventListener('submit', async (event) => {
     const completeData = Object.fromEntries(formData.entries());
     //console.log(completeData);
     
-    fetch('http://localhost:3600/math', {
+    fetch('http://localhost:4000/math', {
         method: 'POST',
         body: JSON.stringify(completeData),
         headers: {
@@ -27,14 +35,22 @@ form.addEventListener('submit', async (event) => {
             //const amtFrom = data.aFrom
             //const amtTo = data.aTo
             //console.log("Datos recibidos del servidor correctamente Cantidad: ", amount2, " de: ", amtFrom, " para: ", amtTo);
-            if(data.status === "succes") {
+            if(data.status === "success") {
                 const msje = data.msj;
                 const fin = data.final;
                 console.log(msje);
                 console.log(fin);
+                r1.textContent = msje;
+                r2.textContent = fin;
+                box2.classList.remove('hide');
             } else {
+                console.log(data);
                 const msje = data.msj;
+                const fin = data.final;
                 console.log(msje);
+                r1.textContent = msje;
+                r2.textContent = fin;
+                box2.classList.remove('hide');
             }
         })
         .catch(error => console.error("Error:", error));
@@ -44,7 +60,7 @@ function cambioLength() {
     amount.textContent = 'The Length to convert';
     select1.replaceChildren();
     select2.replaceChildren();
-    let list = ["milimeter", "centimeter", "meter", "kilometer", "inch", "foot", "yard", "mile"];
+    let list = ["millimeter", "centimeter", "meter", "kilometer", "inch", "foot", "yard", "mile"];
     let i = 0;
     while(i < 8) {
         let optChild = document.createElement('option');
@@ -60,7 +76,7 @@ function cambioWeight() {
     amount.textContent = 'The Weight to convert';
     select1.replaceChildren();
     select2.replaceChildren();
-    let list = ["miligram", "gram", "kilogram", "ounce", "pound"];
+    let list = ["milligram", "gram", "kilogram", "ounce", "pound"];
     let i = 0;
     while(i < 5) {
         let optChild = document.createElement('option');
@@ -88,5 +104,7 @@ function cambioTemperature() {
         i++
     }
 }
+
+
 
  
