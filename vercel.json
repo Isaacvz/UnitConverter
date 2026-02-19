@@ -1,9 +1,8 @@
 {
   "version": 2,
-  "public": true,
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/convert",
       "destination": "/api/server.py"
     }
   ]
