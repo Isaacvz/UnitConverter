@@ -25,7 +25,7 @@ form.addEventListener('submit', async (event) => {
   ? 'http://localhost:4000' 
   : 'https://unit-converter-abraham.vercel.app';
     
-    fetch(`${API_URL}/math`, {
+    fetch(`${API_URL}/api/convert`, {
         method: 'POST',
         body: JSON.stringify(completeData),
         headers: {
