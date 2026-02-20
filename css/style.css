@@ -12,6 +12,16 @@ body {
     display: none;
 }
 
+.button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #888;
+}
+
 .box2 {
     width: 30%;
     height: 30%; 
@@ -114,4 +124,54 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   appearance: textfield;
   -moz-appearance: textfield;
+}
+
+@media screen and (max-width: 480px) {
+    .header-1 {
+        font-size: 2rem;
+    }
+
+    span {
+        font-size: 0.99rem;
+    }
+
+
+    .box2 p {
+        margin-left: 6px;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .box2 p:first-of-type {
+        margin-top: 23px;
+    }
+    
+    input {
+        width: 240px;
+        height: 16px;
+    }
+
+    p + p {
+        margin-top: 5px;
+    }   
+
+    select {
+        width: 240px;
+        height: 23px;
+    }
+
+    .bt {
+        font-size: 0.80rem;
+    }
+
+    .button {
+        font-size: 10px;
+    }
+
+    .box2 {
+        width: 65%;
+        height: 30%;
+    }
 }
